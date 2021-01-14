@@ -7,50 +7,15 @@
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
-    <script>
-        function GetMap() {
-            //Add Map Control JavaScript code here.
-            //Instantiate a map object
-            var map = new atlas.Map("myMap", {
-                //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
-                authOptions: {
-                    authType: 'subscriptionKey',
-                    subscriptionKey: '<Your Azure Maps Key>'
-                }
-            });
-        }
-    </script>
-
-    <style>
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            margin: 0;
-        }
-        
-        #myMap {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+    <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
 </head>
 
-<body onload="GetMap()">
-
-    <div id="myMap"></div>
-
-    <div id="search">
-        <div class="search-input-box">
-            <div class="search-input-group">
-                <div class="search-icon" type="button"></div>
-                <input id="search-input" type="text" placeholder="Search">
-            </div>
-        </div>
-        <ul id="results-panel"></ul>
-    </div>
+<body>
     <app-root></app-root>
 </body>
 
