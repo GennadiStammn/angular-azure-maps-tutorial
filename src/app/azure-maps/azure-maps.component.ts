@@ -35,6 +35,16 @@ export class AzureMapsComponent implements OnInit {
     ], {
       position: atlas.ControlPosition.TopRight
     });
+
+    //Create a data source and add it to the map.
+    var dataSource = new atlas.source.DataSource();
+    map.sources.add(dataSource);
+    //Create a symbol layer to render icons and/or text at points on the map.
+    var layer = new atlas.layer.SymbolLayer(dataSource);
+    //Add the layer to the map.
+    map.layers.add(layer);
+    //Create a point and add it to the data source.
+    dataSource.add(new atlas.data.Point([6.7735, 51.2277]));
   }
 
   ngOnInit(): void {
