@@ -15,7 +15,7 @@ export class AzureMapsComponent implements OnInit {
     var map = new atlas.Map("myMap", {
         authOptions: {
             authType: atlas.AuthenticationType.subscriptionKey,
-            subscriptionKey: 'm4p6IZitk0R3wAH9abK4ZPmgphFrZLzCcRZoVMeEd0k'
+            subscriptionKey: '<Your Azure Maps Key>'
         }
     });
 }
