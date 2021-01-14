@@ -25,6 +25,16 @@ export class AzureMapsComponent implements OnInit {
         subscriptionKey: '<key here>'
       }
     });
+
+    // add all controls
+    map.controls.add([
+      new atlas.control.ZoomControl(),
+      new atlas.control.CompassControl(),
+      new atlas.control.PitchControl(),
+      new atlas.control.StyleControl()
+    ], {
+      position: atlas.ControlPosition.TopRight
+    });
   }
 
   ngOnInit(): void {
