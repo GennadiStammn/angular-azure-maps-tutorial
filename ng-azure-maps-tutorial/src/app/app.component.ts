@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import * as atlas from 'azure-maps-control';
-import { IMapEvent, SearchService } from 'ng-azure-maps';
+import { IMapEvent, SearchService, WeatherService } from 'ng-azure-maps';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +10,16 @@ import { IMapEvent, SearchService } from 'ng-azure-maps';
 export class AppComponent {
   title = 'ng-azure-maps-tutorial';
 
-  constructor(private readonly searchService: SearchService) {
+  constructor(private readonly searchService: SearchService,
+    private readonly weatherService: WeatherService) {
   }
 
   mapClick(event: atlas.MapMouseEvent) {
     console.log(event.position)
+
+    this.weatherService.getCurrentConditions(event.position[0], event.position[1]).subscribe(result => {
+      console.log(JSON.stringify(result.results[0]));
+    });
   }
 
   mapReady(event: IMapEvent) {
